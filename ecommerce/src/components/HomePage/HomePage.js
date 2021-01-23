@@ -5,6 +5,7 @@ import { fetchRecipes } from "../../store/actions/index";
 import styles from "./HomePage.css";
 import NavComp from "../UI/NavComp/NavComp";
 import CardItem from "../UI/CardItem/CardItem";
+import Spinner from "react-bootstrap/Spinner";
 
 const HomePage = (props) => {
   const [searchVal, setSearchVal] = useState("");
@@ -14,9 +15,26 @@ const HomePage = (props) => {
   const loading = useSelector((state) => state.loading);
 
   useEffect(() => {
-    dispatch(fetchRecipes("apples"));
-    console.log(recipes);
+    // dispatch(fetchRecipes("banana"));
   }, []);
+
+  let cards;
+  {
+    loading
+      ? (cards = (
+          <Spinner
+            animation="border"
+            role="status"
+            variant="light"
+            className={styles.spinner}
+          />
+        ))
+      : (cards = recipes.map((recipe) => {
+          return (
+            <CardItem img={recipe.image} title={recipe.title} id={recipe.id} />
+          );
+        }));
+  }
 
   return (
     <div className={styles.main}>
@@ -31,9 +49,7 @@ const HomePage = (props) => {
         }}
       />
       <div className={styles.cardContainer}>
-        {recipes.map((recipe) => {
-          return <CardItem img={recipe.img} title={recipe.title} />;
-        })}
+        {cards}
         <CardItem />
       </div>
     </div>

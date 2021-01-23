@@ -4,8 +4,8 @@ import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
 const NavComp = (props) => {
   return (
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">Recipe Search</Navbar.Brand>
+    <Navbar bg="light" expand="lg" sticky="top">
+      <Navbar.Brand href="/">Recipe Search</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
