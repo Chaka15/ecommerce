@@ -15,7 +15,7 @@ const HomePage = (props) => {
   const loading = useSelector((state) => state.loading);
 
   useEffect(() => {
-    // dispatch(fetchRecipes("banana"));
+    dispatch(fetchRecipes("chocolate"));
   }, []);
 
   let cards;
@@ -31,7 +31,13 @@ const HomePage = (props) => {
         ))
       : (cards = recipes.map((recipe) => {
           return (
-            <CardItem img={recipe.image} title={recipe.title} id={recipe.id} />
+            <CardItem
+              img={recipe.image}
+              title={recipe.title}
+              id={recipe.id}
+              key={recipe.id}
+              className={styles.cardItem}
+            />
           );
         }));
   }
@@ -48,10 +54,7 @@ const HomePage = (props) => {
           setClicked(true);
         }}
       />
-      <div className={styles.cardContainer}>
-        {cards}
-        <CardItem />
-      </div>
+      <div className={styles.cardContainer}>{cards}</div>
     </div>
   );
 };

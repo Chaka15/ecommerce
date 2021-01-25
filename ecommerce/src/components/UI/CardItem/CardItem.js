@@ -14,7 +14,7 @@ const CardItem = (props) => {
       <Card.Img variant="top" src={props.img} />
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
-        <Card.Text>Kartica</Card.Text>
+        <Card.Text>Click the button down for more info</Card.Text>
         <FaHeart
           style={{ fontSize: "33px", cursor: "pointer" }}
           className={fav ? styles.green : styles.gray}
