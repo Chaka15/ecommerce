@@ -10,8 +10,10 @@ import { FaBan } from "react-icons/fa";
 const InformationPage = (props) => {
   const [recipeInfo, setRecipeInfo] = useState({});
   const [recipeInstructions, setRecipeInstructions] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch(
       `https://api.spoonacular.com/recipes/${props.location.pathname}/information?apiKey=ec39b7d20a314a2d8a7fcedca9b5b418`
     )
@@ -19,7 +21,12 @@ const InformationPage = (props) => {
       .then((responseData) => {
         let newObject = JSON.parse(JSON.stringify(responseData));
         setRecipeInfo(newObject);
-        setRecipeInstructions(newObject.instructions);
+        if (newObject.instructions) {
+          setRecipeInstructions(newObject.instructions);
+        } else {
+          setRecipeInstructions("");
+        }
+        setLoading(false);
       });
   }, []);
 
@@ -28,10 +35,14 @@ const InformationPage = (props) => {
       <NavComp style={{ display: "none" }} />
       <div className={styles.cardContainer}>
         <InformationCard
-          instructions={`${recipeInstructions.slice(
-            0,
-            100
-          )}... Click the link below for more info.`}
+          instructions={
+            !loading
+              ? `${recipeInstructions.slice(
+                  0,
+                  100
+                )}... Click the link below for more info.`
+              : "Loading..."
+          }
           image={recipeInfo.image}
           title={recipeInfo.title}
           vegetarian={

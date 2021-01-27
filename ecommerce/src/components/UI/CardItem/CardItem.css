@@ -1,7 +1,12 @@
 .card {
   width: 18rem;
   filter: drop-shadow(5px 6px 10px #3f3e3e);
-  margin: 30px;
+  margin: 20px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: scale(1.05);
 }
 
 .green {

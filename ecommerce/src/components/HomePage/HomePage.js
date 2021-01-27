@@ -15,7 +15,7 @@ const HomePage = (props) => {
   const loading = useSelector((state) => state.loading);
 
   useEffect(() => {
-    dispatch(fetchRecipes("chocolate"));
+    dispatch(fetchRecipes("strawberry"));
   }, []);
 
   let cards;
@@ -36,7 +36,6 @@ const HomePage = (props) => {
               title={recipe.title}
               id={recipe.id}
               key={recipe.id}
-              className={styles.cardItem}
             />
           );
         }));

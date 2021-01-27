@@ -9,7 +9,7 @@ const InformationCard = (props) => {
 
   return (
     <Card className={styles.informationCard}>
-      <Card.Img variant="top" src={props.image} />
+      <Card.Img variant="top" src={props.image} className={styles.img} />
       <Card.Body>
         <Card.Title style={{ textAlign: "center" }}>{props.title}</Card.Title>
         <Card.Text style={{ textAlign: "center" }}>
@@ -32,7 +32,7 @@ const InformationCard = (props) => {
         }}
       >
         <FaHeart
-          style={{ fontSize: "33px", cursor: "pointer" }}
+          style={{ fontSize: "34px", cursor: "pointer" }}
           className={fav ? styles.green : styles.gray}
           onClick={() => {
             setFav(!fav);

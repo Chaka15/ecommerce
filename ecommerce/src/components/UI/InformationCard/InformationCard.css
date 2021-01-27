@@ -9,8 +9,23 @@
 
 .informationCard {
   width: 17rem;
-  margin-top: 20px;
+  margin: 20px;
   filter: drop-shadow(5px 6px 20px #3f3e3e);
+}
+.img {
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.img:hover,
+.img:focus,
+.img:active {
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
 }
 
 @media (min-width: 480px) {
@@ -25,7 +40,7 @@
 }
 @media (min-width: 1025px) {
   .informationCard {
-    width: 24rem;
+    width: 26rem;
   }
 }
 

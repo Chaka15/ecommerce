@@ -11,12 +11,14 @@ const CardItem = (props) => {
 
   return (
     <Card className={styles.card}>
-      <Card.Img variant="top" src={props.img} />
+      <Card.Img variant="top" src={props.img} className={styles.cardImg} />
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
-        <Card.Text>Click the button down for more info</Card.Text>
+        <Card.Text style={{ textAlign: "center" }}>
+          To find out more click the button below
+        </Card.Text>
         <FaHeart
-          style={{ fontSize: "33px", cursor: "pointer" }}
+          style={{ fontSize: "33px", cursor: "pointer", textAlign: "center" }}
           className={fav ? styles.green : styles.gray}
           onClick={() => {
             setFav(!fav);
