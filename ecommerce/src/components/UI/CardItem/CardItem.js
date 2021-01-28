@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { withRouter } from "react-router";
 
 import { Card, Button } from "react-bootstrap";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaArrowDown } from "react-icons/fa";
 import styles from "./CardItem.css";
 
 const CardItem = (props) => {
@@ -15,7 +15,7 @@ const CardItem = (props) => {
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         <Card.Text style={{ textAlign: "center" }}>
-          To find out more click the button below
+          To find out more click the button below <FaArrowDown />
         </Card.Text>
         <FaHeart
           style={{ fontSize: "33px", cursor: "pointer", textAlign: "center" }}

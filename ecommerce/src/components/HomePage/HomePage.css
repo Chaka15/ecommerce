@@ -4,15 +4,30 @@
   background-color: #28a745;
 }
 .cardContainer {
-  /* border: 1px solid red; */
   min-height: 91vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
-
 .spinner {
-  height: 4rem;
-  width: 4rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+@media (min-width: 631px) {
+  .cardContainer {
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+  .spinner {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+}
+@media (min-width: 1025px) {
+  .spinner {
+    height: 4rem;
+    width: 4rem;
+  }
 }

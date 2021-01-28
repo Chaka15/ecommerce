@@ -17,6 +17,12 @@ export const fetchRecipesFail = (error) => {
     error: error,
   };
 };
+export const setClicked = (clicked) => {
+  return {
+    type: actionTypes.SET_CLICKED,
+    clicked: clicked,
+  };
+};
 
 export const setFavorites = (favRecipes) => {
   return {

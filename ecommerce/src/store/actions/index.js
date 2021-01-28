@@ -1,1 +1,1 @@
-export { fetchRecipes, setFavorites } from "./actions";
+export { fetchRecipes, setFavorites, setClicked } from "./actions";

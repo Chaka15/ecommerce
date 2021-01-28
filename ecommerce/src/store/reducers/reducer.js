@@ -3,6 +3,7 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   recipes: [],
   loading: false,
+  clicked: false,
   favRecipes: [],
 };
 
@@ -18,11 +19,18 @@ const reducer = (state = initialState, action) => {
         ...state,
         recipes: action.recipes,
         loading: false,
+        clicked: false,
       };
     case actionTypes.FETCH_RECIPES_FAIL:
       return {
         ...state,
         loading: false,
+        clicked: false,
+      };
+    case actionTypes.SET_CLICKED:
+      return {
+        ...state,
+        clicked: true,
       };
     case actionTypes.SET_FAVORITES:
       return {

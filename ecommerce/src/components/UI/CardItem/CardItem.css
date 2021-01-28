@@ -1,5 +1,6 @@
 .card {
-  width: 18rem;
+  width: 15rem;
+  /* height: 28rem; */
   filter: drop-shadow(5px 6px 10px #3f3e3e);
   margin: 20px;
   text-align: center;
@@ -7,6 +8,16 @@
 }
 .card:hover {
   transform: scale(1.05);
+}
+@media (min-width: 480px) {
+  .card {
+    width: 16rem;
+  }
+}
+@media (min-width: 801px) {
+  .card {
+    width: 17rem;
+  }
 }
 
 .green {
