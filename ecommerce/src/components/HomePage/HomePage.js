@@ -15,7 +15,7 @@ const HomePage = (props) => {
   const loading = useSelector((state) => state.loading);
 
   useEffect(() => {
-    dispatch(fetchRecipes("strawberry"));
+    // dispatch(fetchRecipes("strawberry"));
   }, []);
 
   let cards;
