@@ -1,0 +1,50 @@
+.footer {
+  background-color: #212529;
+  color: #f8f9fa;
+  height: 35vh;
+  display: flex;
+  justify-content: space-around;
+  font-family: "Roboto", "Cantarell", sans-serif;
+}
+
+.firstContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.locationContainer {
+  display: none;
+}
+section {
+  height: 100%;
+  padding-top: 10px;
+}
+section a {
+  color: inherit;
+}
+section a:hover {
+  color: inherit;
+}
+.lastDiv {
+  background-color: #1b1c1d;
+  color: #f8f9fa;
+  text-align: center;
+  padding: 20px 0 15px 0;
+}
+.lastDiv a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (min-width: 621px) {
+  .locationContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}

@@ -6,6 +6,7 @@ import styles from "./HomePage.css";
 import NavComp from "../UI/NavComp/NavComp";
 import CardItem from "../UI/CardItem/CardItem";
 import Spinner from "react-bootstrap/Spinner";
+import Footer from "../UI//Footer/Footer";
 
 const HomePage = (props) => {
   const [searchVal, setSearchVal] = useState("");
@@ -45,19 +46,22 @@ const HomePage = (props) => {
   }
 
   return (
-    <div className={styles.main}>
-      <NavComp
-        onChange={(e) =>
-          setTimeout(() => {
-            setSearchVal(e.target.value);
-          }, 1000)
-        }
-        onClick={() => {
-          dispatch(setClicked(clicked));
-        }}
-      />
-      <div className={styles.cardContainer}>{cards}</div>
-    </div>
+    <React.Fragment>
+      <div className={styles.main}>
+        <NavComp
+          onChange={(e) =>
+            setTimeout(() => {
+              setSearchVal(e.target.value);
+            }, 1000)
+          }
+          onClick={() => {
+            dispatch(setClicked(clicked));
+          }}
+        />
+        <div className={styles.cardContainer}>{cards}</div>
+      </div>
+      <Footer />
+    </React.Fragment>
   );
 };
 
