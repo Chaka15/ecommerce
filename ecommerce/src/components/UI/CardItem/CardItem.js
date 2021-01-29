@@ -13,7 +13,7 @@ const CardItem = (props) => {
     <Card className={styles.card}>
       <Card.Img variant="top" src={props.img} className={styles.cardImg} />
       <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
+        <Card.Title style={{ minHeight: "75px" }}>{props.title}</Card.Title>
         <Card.Text style={{ textAlign: "center" }}>
           To find out more click the button below <FaArrowDown />
         </Card.Text>

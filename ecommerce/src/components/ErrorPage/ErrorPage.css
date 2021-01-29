@@ -7,10 +7,37 @@
   justify-content: center;
   align-items: center;
 }
+.icon {
+  font-size: 35px;
+}
 .link {
   color: #f8f9fa;
   font-size: 1.2rem;
+  padding-top: 20px;
 }
 .link:hover {
   color: black;
+}
+
+@media (min-width: 801px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+  .icon {
+    font-size: 45px;
+  }
+  .link {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 1023px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+  .icon {
+    font-size: 55px;
+  }
+  .link {
+    font-size: 1.9rem;
+  }
 }

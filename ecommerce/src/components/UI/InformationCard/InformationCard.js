@@ -32,7 +32,7 @@ const InformationCard = (props) => {
         }}
       >
         <FaHeart
-          style={{ fontSize: "34px", cursor: "pointer" }}
+          style={{ cursor: "pointer" }}
           className={fav ? styles.green : styles.gray}
           onClick={() => {
             setFav(!fav);
