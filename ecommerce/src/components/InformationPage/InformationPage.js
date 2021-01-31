@@ -102,6 +102,8 @@ const InformationPage = (props) => {
             }
             preparationTime={recipeInfo.readyInMinutes}
             sourceUrl={recipeInfo.sourceUrl}
+            id={recipeInfo.id}
+            recipeInfo={recipeInfo}
           />
         </div>
       </div>

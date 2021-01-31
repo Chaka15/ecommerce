@@ -24,10 +24,16 @@ export const setClicked = (clicked) => {
   };
 };
 
-export const setFavorites = (favRecipes) => {
+export const addToFavorites = (favRecipes, recipe) => {
   return {
-    type: actionTypes.SET_FAVORITES,
-    favRecipes: favRecipes,
+    type: actionTypes.ADD_TO_FAVORITES,
+    favRecipes: favRecipes.concat(recipe),
+  };
+};
+export const removeFromFavorites = (favRecipes, recipeId) => {
+  return {
+    type: actionTypes.REMOVE_FROM_FAVORITES,
+    favRecipes: favRecipes.filter((recipe) => recipe.id !== recipeId),
   };
 };
 

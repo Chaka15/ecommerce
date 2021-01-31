@@ -1,6 +1,8 @@
 import React from "react";
 
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import styles from "./NavComp.css";
 
 const NavComp = (props) => {
   return (
@@ -9,8 +11,21 @@ const NavComp = (props) => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/favorites">Favorites</Nav.Link>
+          <NavLink
+            to="/"
+            className={styles.NavLink}
+            activeClassName={styles.active}
+            exact
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/favorites"
+            className={styles.NavLink}
+            activeClassName={styles.active}
+          >
+            Favorites
+          </NavLink>
         </Nav>
         <Form inline style={props.style}>
           <FormControl

@@ -1,0 +1,32 @@
+.card {
+  width: 172px;
+  margin: 15px;
+  filter: drop-shadow(5px 6px 20px #3f3e3e);
+}
+.trash {
+  font-size: 33px;
+  color: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+}
+.trash:hover,
+.trash:active {
+  color: #28a745;
+  transition: all 0.6s;
+}
+
+/* .removing {
+  animation: removed-animation 0.4s ease-out forwards;
+  transform-origin: 50% 50%;
+}
+
+@keyframes removed-animation {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+} */

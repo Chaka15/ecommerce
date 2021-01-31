@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./InformationCard.css";
 
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import { FaHeart } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromFavorites, addToFavorites } from "../../../store/actions";
 
 const InformationCard = (props) => {
-  const [fav, setFav] = useState(false);
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favRecipes);
+
+  const determineItem = (itemId) => {
+    return favorites.some((favorite) => favorite.id === itemId);
+  };
 
   return (
     <Card className={styles.informationCard}>
@@ -33,9 +40,13 @@ const InformationCard = (props) => {
       >
         <FaHeart
           style={{ cursor: "pointer" }}
-          className={fav ? styles.green : styles.gray}
+          className={determineItem(props.id) ? styles.green : styles.gray}
           onClick={() => {
-            setFav(!fav);
+            if (!determineItem(props.id)) {
+              dispatch(addToFavorites(favorites, props.recipeInfo));
+            } else if (determineItem(props.id)) {
+              dispatch(removeFromFavorites(favorites, props.id));
+            }
           }}
         />
         <Card.Link

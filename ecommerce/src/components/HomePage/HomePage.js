@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchRecipes, setClicked } from "../../store/actions/index";
+import { fetchRecipes, setClicked } from "../../store/actions";
 
 import styles from "./HomePage.css";
 import NavComp from "../UI/NavComp/NavComp";
@@ -36,6 +36,7 @@ const HomePage = (props) => {
     cards = recipes.map((recipe) => {
       return (
         <CardItem
+          recipe={recipe}
           img={recipe.image}
           title={recipe.title}
           id={recipe.id}

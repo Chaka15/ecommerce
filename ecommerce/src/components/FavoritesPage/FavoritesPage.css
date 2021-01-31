@@ -6,3 +6,8 @@
 .hide {
   display: none;
 }
+.favoritesDiv {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}

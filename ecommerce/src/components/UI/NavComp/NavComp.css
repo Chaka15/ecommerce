@@ -1,0 +1,16 @@
+.NavLink {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
+  padding-right: 0;
+  padding-left: 0;
+  display: block;
+  padding: 0.5rem 1rem;
+}
+.NavLink:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+}
+.active {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+}

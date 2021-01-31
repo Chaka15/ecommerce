@@ -32,7 +32,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         clicked: true,
       };
-    case actionTypes.SET_FAVORITES:
+    case actionTypes.ADD_TO_FAVORITES:
+      return {
+        ...state,
+        favRecipes: action.favRecipes,
+      };
+    case actionTypes.REMOVE_FROM_FAVORITES:
       return {
         ...state,
         favRecipes: action.favRecipes,
