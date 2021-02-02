@@ -9,17 +9,18 @@ import styles from "./FavoriteCard.css";
 const FavoriteCard = (props) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favRecipes);
+  // const [clicked, setClicked] = useState(false);
 
   return (
     <Card className={styles.card}>
-      <Card.Img
-        variant="top"
-        src={props.image}
-        style={{ width: "170px", height: "115px" }}
-      />
+      <Card.Img variant="top" src={props.image} className={styles.cardImg} />
       <Card.Body style={{ textAlign: "center" }}>
         <Card.Title>{props.title}</Card.Title>
-        <Card.Text>Liked {props.likes} times by others.</Card.Text>
+        <Card.Text>
+          {props.likes === 1
+            ? "Liked once by others."
+            : `Liked ${props.likes} times by others.`}
+        </Card.Text>
       </Card.Body>
       <Card.Footer style={{ textAlign: "center" }}>
         <FaTrash

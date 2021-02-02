@@ -10,7 +10,7 @@ const BackToTopButton = () => {
       color="#212529"
       fontSize="14px"
       position={{ right: "1%", bottom: "1%" }}
-      hover={{ backgroundColor: "#28a745", color: "black" }}
+      hover={{ backgroundColor: "red", color: "black" }}
       transition="all 0.5s"
       showOnDistance={1100}
       scrollBehavior="smooth"

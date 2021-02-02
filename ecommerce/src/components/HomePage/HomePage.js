@@ -7,6 +7,7 @@ import NavComp from "../UI/NavComp/NavComp";
 import CardItem from "../UI/CardItem/CardItem";
 import Spinner from "react-bootstrap/Spinner";
 import Footer from "../UI//Footer/Footer";
+import HomePageDiv from "../UI/HomePageDiv/HomePageDiv";
 
 const HomePage = (props) => {
   const [searchVal, setSearchVal] = useState("");
@@ -59,7 +60,9 @@ const HomePage = (props) => {
             dispatch(setClicked(clicked));
           }}
         />
-        <div className={styles.cardContainer}>{cards}</div>
+        <div className={styles.cardContainer}>
+          {cards.length === 0 ? <HomePageDiv /> : cards}
+        </div>
       </div>
       <Footer />
     </React.Fragment>
