@@ -4,6 +4,7 @@ import { withRouter } from "react-router";
 import NavComp from "../UI/NavComp/NavComp";
 import styles from "./InformationPage.css";
 import InformationCard from "../UI/InformationCard/InformationCard";
+import ErrorRecipeInfoPage from "../ErrorRecipeInfoPage/ErrorRecipeInfoPage";
 import Footer from "../UI/Footer/Footer";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaBan } from "react-icons/fa";
@@ -12,6 +13,7 @@ const InformationPage = (props) => {
   const [recipeInfo, setRecipeInfo] = useState({});
   const [recipeInstructions, setRecipeInstructions] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
 
   useEffect(() => {
     console.log("render info");
@@ -35,7 +37,7 @@ const InformationPage = (props) => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        setError(err.message);
       });
   }, [props.location.pathname, props.history]);
 
@@ -44,67 +46,83 @@ const InformationPage = (props) => {
       <div className={styles.main}>
         <NavComp style={{ display: "none" }} />
         <div className={styles.cardContainer}>
-          <InformationCard
-            instructions={
-              !loading
-                ? `${recipeInstructions.slice(
-                    0,
-                    100
-                  )}... Click the link below for more info.`
-                : "Loading..."
-            }
-            image={recipeInfo.image}
-            title={recipeInfo.title}
-            vegetarian={
-              recipeInfo.vegetarian ? (
-                <FaCheckCircle
-                  style={{
-                    fontSize: "25px",
-                    color: "#28a745",
-                    marginLeft: "10px",
-                  }}
-                />
-              ) : (
-                <FaBan
-                  style={{ fontSize: "25px", color: "red", marginLeft: "10px" }}
-                />
-              )
-            }
-            vegan={
-              recipeInfo.vegan ? (
-                <FaCheckCircle
-                  style={{
-                    fontSize: "25px",
-                    color: "#28a745",
-                    marginLeft: "10px",
-                  }}
-                />
-              ) : (
-                <FaBan
-                  style={{ fontSize: "25px", color: "red", marginLeft: "10px" }}
-                />
-              )
-            }
-            glutenFree={
-              recipeInfo.glutenFree ? (
-                <FaCheckCircle
-                  style={{
-                    fontSize: "25px",
-                    color: "#28a745",
-                    marginLeft: "10px",
-                  }}
-                />
-              ) : (
-                <FaBan
-                  style={{ fontSize: "25px", color: "red", marginLeft: "10px" }}
-                />
-              )
-            }
-            preparationTime={recipeInfo.readyInMinutes}
-            sourceUrl={recipeInfo.sourceUrl}
-            id={recipeInfo.id}
-            recipeInfo={recipeInfo}
-          />
+          {error ? (
+            <ErrorRecipeInfoPage error={error} />
+          ) : (
+            <InformationCard
+              instructions={
+                !loading
+                  ? `${recipeInstructions.slice(
+                      0,
+                      100
+                    )}... Click the link below for full description.`
+                  : "Loading..."
+              }
+              image={recipeInfo.image}
+              title={recipeInfo.title}
+              vegetarian={
+                recipeInfo.vegetarian ? (
+                  <FaCheckCircle
+                    style={{
+                      fontSize: "25px",
+                      color: "#28a745",
+                      marginLeft: "10px",
+                    }}
+                  />
+                ) : (
+                  <FaBan
+                    style={{
+                      fontSize: "25px",
+                      color: "red",
+                      marginLeft: "10px",
+                    }}
+                  />
+                )
+              }
+              vegan={
+                recipeInfo.vegan ? (
+                  <FaCheckCircle
+                    style={{
+                      fontSize: "25px",
+                      color: "#28a745",
+                      marginLeft: "10px",
+                    }}
+                  />
+                ) : (
+                  <FaBan
+                    style={{
+                      fontSize: "25px",
+                      color: "red",
+                      marginLeft: "10px",
+                    }}
+                  />
+                )
+              }
+              glutenFree={
+                recipeInfo.glutenFree ? (
+                  <FaCheckCircle
+                    style={{
+                      fontSize: "25px",
+                      color: "#28a745",
+                      marginLeft: "10px",
+                    }}
+                  />
+                ) : (
+                  <FaBan
+                    style={{
+                      fontSize: "25px",
+                      color: "red",
+                      marginLeft: "10px",
+                    }}
+                  />
+                )
+              }
+              preparationTime={recipeInfo.readyInMinutes}
+              sourceUrl={recipeInfo.sourceUrl}
+              id={recipeInfo.id}
+              recipeInfo={recipeInfo}
+            />
+          )}
         </div>
       </div>
       <Footer />

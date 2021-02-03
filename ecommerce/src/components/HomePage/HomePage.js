@@ -8,13 +8,18 @@ import CardItem from "../UI/CardItem/CardItem";
 import Spinner from "react-bootstrap/Spinner";
 import Footer from "../UI//Footer/Footer";
 import HomePageDiv from "../UI/HomePageDiv/HomePageDiv";
+import FormComponent from "../UI/FormComponent/FormComponent";
 
 const HomePage = (props) => {
-  const [searchVal, setSearchVal] = useState("");
   const dispatch = useDispatch();
   const recipes = useSelector((state) => state.recipes);
   const loading = useSelector((state) => state.loading);
   const clicked = useSelector((state) => state.clicked);
+
+  const [searchVal, setSearchVal] = useState("");
+  const [vegetarian, setVegetarian] = useState(false);
+  const [vegan, setVegan] = useState(false);
+  const [gluten, setGluten] = useState(false);
 
   useEffect(() => {
     console.log("Component rendered");
@@ -47,6 +52,16 @@ const HomePage = (props) => {
     });
   }
 
+  const onGlutenHandler = () => {
+    setGluten(!gluten);
+  };
+  const onVegetarianHandler = () => {
+    setVegetarian(!vegetarian);
+  };
+  const onVeganHandler = () => {
+    setVegan(!vegan);
+  };
+
   return (
     <React.Fragment>
       <div className={styles.main}>
@@ -60,6 +75,17 @@ const HomePage = (props) => {
             dispatch(setClicked(clicked));
           }}
         />
+        {cards.length === 0 ? null : (
+          <FormComponent
+            checkedFirst={vegetarian}
+            onChangeFirst={onVegetarianHandler}
+            checkedSecond={vegan}
+            onChangeSecond={onVeganHandler}
+            checkedThird={gluten}
+            onChangeThird={onGlutenHandler}
+          />
+        )}
+
         <div className={styles.cardContainer}>
           {cards.length === 0 ? <HomePageDiv /> : cards}
         </div>

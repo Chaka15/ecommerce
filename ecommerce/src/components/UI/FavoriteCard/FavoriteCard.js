@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromFavorites } from "../../../store/actions";
@@ -9,10 +9,14 @@ import styles from "./FavoriteCard.css";
 const FavoriteCard = (props) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favRecipes);
-  // const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(0);
 
   return (
-    <Card className={styles.card}>
+    <Card
+      className={styles.card}
+      onAnimationEnd={() => setClicked(0)}
+      clicked={clicked}
+    >
       <Card.Img variant="top" src={props.image} className={styles.cardImg} />
       <Card.Body style={{ textAlign: "center" }}>
         <Card.Title>{props.title}</Card.Title>
@@ -26,8 +30,8 @@ const FavoriteCard = (props) => {
         <FaTrash
           className={styles.trash}
           onClick={() => {
+            setClicked(1);
             dispatch(removeFromFavorites(favorites, props.id));
-            console.log(favorites);
           }}
         />
       </Card.Footer>

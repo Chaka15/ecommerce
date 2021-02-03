@@ -30,7 +30,7 @@ const NavComp = (props) => {
         <Form inline style={props.style}>
           <FormControl
             type="text"
-            placeholder="Search"
+            placeholder="Your ingredients"
             className="mr-sm-2"
             onChange={props.onChange}
           />

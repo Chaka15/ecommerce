@@ -1,0 +1,14 @@
+.formDiv {
+  height: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  color: #f8f9fa;
+  background-color: #212529;
+}
+@media (min-width: 768px) {
+  .formDiv {
+    height: 60px;
+  }
+}
