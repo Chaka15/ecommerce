@@ -15,6 +15,7 @@ const HomePage = (props) => {
   const recipes = useSelector((state) => state.recipes);
   const loading = useSelector((state) => state.loading);
   const clicked = useSelector((state) => state.clicked);
+  const fetchError = useSelector((state) => state.fetchError);
 
   const [searchVal, setSearchVal] = useState("");
   const [likes, setLikes] = useState(false);
@@ -36,6 +37,8 @@ const HomePage = (props) => {
         className={styles.spinner}
       />
     );
+  } else if (fetchError) {
+    cards = <p>{fetchError}</p>;
   } else {
     if (likes) {
       let recipesCopy = recipes.slice();

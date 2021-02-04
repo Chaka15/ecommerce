@@ -9,7 +9,7 @@ const FormComponent = (props) => {
       <Form.Check
         type="switch"
         id="likes-switch"
-        label="Sort by likes"
+        label="Sort by likes (descending)"
         onChange={props.onChange}
         checked={props.checked}
       />

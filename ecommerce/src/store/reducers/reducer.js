@@ -4,6 +4,7 @@ const initialState = {
   recipes: [],
   loading: false,
   clicked: false,
+  fetchError: false,
   favRecipes: [],
 };
 
@@ -20,12 +21,14 @@ const reducer = (state = initialState, action) => {
         recipes: action.recipes,
         loading: false,
         clicked: false,
+        fetchError: false,
       };
     case actionTypes.FETCH_RECIPES_FAIL:
       return {
         ...state,
         loading: false,
         clicked: false,
+        fetchError: action.fetchError,
       };
     case actionTypes.SET_CLICKED:
       return {

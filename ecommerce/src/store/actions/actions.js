@@ -14,7 +14,7 @@ export const fetchRecipesSuccess = (recipes) => {
 export const fetchRecipesFail = (error) => {
   return {
     type: actionTypes.FETCH_RECIPES_FAIL,
-    error: error,
+    fetchError: error,
   };
 };
 export const setClicked = (clicked) => {
@@ -54,7 +54,7 @@ export const fetchRecipes = (searchValue) => {
         dispatch(fetchRecipesSuccess(fetchedRecipes));
       })
       .catch((err) => {
-        dispatch(fetchRecipesFail(err));
+        dispatch(fetchRecipesFail(err.message));
       });
   };
 };
