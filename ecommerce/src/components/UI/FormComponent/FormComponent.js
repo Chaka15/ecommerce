@@ -8,24 +8,10 @@ const FormComponent = (props) => {
     <Form className={styles.formDiv}>
       <Form.Check
         type="switch"
-        id="vegetarian-switch"
-        label="Vegetarian"
-        onChange={props.onChangeFirst}
-        checked={props.checkedFirst}
-      />
-      <Form.Check
-        type="switch"
-        id="vegan-switch"
-        label="Vegan"
-        onChange={props.onChangeSecond}
-        checked={props.checkedSecond}
-      />
-      <Form.Check
-        type="switch"
-        id="gluten-switch"
-        label="Gluten Free"
-        onChange={props.onChangeThird}
-        checked={props.checkedThird}
+        id="likes-switch"
+        label="Sort by likes"
+        onChange={props.onChange}
+        checked={props.checked}
       />
     </Form>
   );

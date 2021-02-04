@@ -17,9 +17,7 @@ const HomePage = (props) => {
   const clicked = useSelector((state) => state.clicked);
 
   const [searchVal, setSearchVal] = useState("");
-  const [vegetarian, setVegetarian] = useState(false);
-  const [vegan, setVegan] = useState(false);
-  const [gluten, setGluten] = useState(false);
+  const [likes, setLikes] = useState(false);
 
   useEffect(() => {
     console.log("Component rendered");
@@ -39,27 +37,37 @@ const HomePage = (props) => {
       />
     );
   } else {
-    cards = recipes.map((recipe) => {
-      return (
-        <CardItem
-          recipe={recipe}
-          img={recipe.image}
-          title={recipe.title}
-          id={recipe.id}
-          key={recipe.id}
-        />
-      );
-    });
+    if (likes) {
+      let recipesCopy = recipes.slice();
+      recipesCopy.sort((a, b) => (a.likes < b.likes ? 1 : -1));
+      cards = recipesCopy.map((recipe) => {
+        return (
+          <CardItem
+            recipe={recipe}
+            img={recipe.image}
+            title={recipe.title}
+            id={recipe.id}
+            key={recipe.id}
+          />
+        );
+      });
+    } else {
+      cards = recipes.map((recipe) => {
+        return (
+          <CardItem
+            recipe={recipe}
+            img={recipe.image}
+            title={recipe.title}
+            id={recipe.id}
+            key={recipe.id}
+          />
+        );
+      });
+    }
   }
 
-  const onGlutenHandler = () => {
-    setGluten(!gluten);
-  };
-  const onVegetarianHandler = () => {
-    setVegetarian(!vegetarian);
-  };
-  const onVeganHandler = () => {
-    setVegan(!vegan);
+  const onLikesHandler = () => {
+    setLikes(!likes);
   };
 
   return (
@@ -76,14 +84,7 @@ const HomePage = (props) => {
           }}
         />
         {cards.length === 0 ? null : (
-          <FormComponent
-            checkedFirst={vegetarian}
-            onChangeFirst={onVegetarianHandler}
-            checkedSecond={vegan}
-            onChangeSecond={onVeganHandler}
-            checkedThird={gluten}
-            onChangeThird={onGlutenHandler}
-          />
+          <FormComponent checked={likes} onChange={onLikesHandler} />
         )}
 
         <div className={styles.cardContainer}>
