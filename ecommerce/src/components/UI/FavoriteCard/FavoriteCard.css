@@ -7,13 +7,13 @@
 .card:hover {
   transform: scale(1.05);
 }
-.card[clicked="1"] {
-  animation: removed-animation 0.4s ease-out forwards;
-  transform-origin: 50% 50%;
-}
+
 .cardImg {
   width: 170px;
   height: 115px;
+}
+.infoIcon {
+  font-size: 1.5rem;
 }
 .trash {
   font-size: 33px;
@@ -52,17 +52,5 @@
   .cardImg {
     width: 240px;
     height: 155px;
-  }
-}
-
-@keyframes removed-animation {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(1.6);
   }
 }

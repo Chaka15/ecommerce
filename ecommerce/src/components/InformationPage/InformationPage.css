@@ -9,3 +9,20 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (min-width: 768px) {
+  .main {
+    min-height: 80vh;
+  }
+  .cardContainer {
+    min-height: 70vh;
+  }
+}
+@media (min-width: 1024px) {
+  .main {
+    min-height: 70vh;
+  }
+  .cardContainer {
+    min-height: 60vh;
+  }
+}

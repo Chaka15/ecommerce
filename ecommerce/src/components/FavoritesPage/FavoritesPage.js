@@ -31,8 +31,9 @@ const FavoritesPage = () => {
               <FavoriteCard
                 image={favorite.image}
                 title={favorite.title}
-                likes={favorite.likes}
                 id={favorite.id}
+                likes={favorite.likes}
+                aggregateLikes={favorite.aggregateLikes}
               />
             ))
           )}

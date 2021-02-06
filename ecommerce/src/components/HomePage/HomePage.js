@@ -9,8 +9,9 @@ import Spinner from "react-bootstrap/Spinner";
 import Footer from "../UI//Footer/Footer";
 import HomePageDiv from "../UI/HomePageDiv/HomePageDiv";
 import FormComponent from "../UI/FormComponent/FormComponent";
+import ErrorFetchPage from "../ErrorFetchPage/ErrorFetchPage";
 
-const HomePage = (props) => {
+const HomePage = () => {
   const dispatch = useDispatch();
   const recipes = useSelector((state) => state.recipes);
   const loading = useSelector((state) => state.loading);
@@ -38,7 +39,7 @@ const HomePage = (props) => {
       />
     );
   } else if (fetchError) {
-    cards = <p>{fetchError}</p>;
+    cards = <ErrorFetchPage error={fetchError} />;
   } else {
     if (likes) {
       let recipesCopy = recipes.slice();

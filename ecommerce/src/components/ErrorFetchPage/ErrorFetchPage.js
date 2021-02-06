@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./ErrorRecipeInfoPage.css";
+import styles from "./ErrorFetchPage.css";
 import { FaCode } from "react-icons/fa";
 
 const ErrorRecipeInfoPage = (props) => {
@@ -8,7 +8,7 @@ const ErrorRecipeInfoPage = (props) => {
     <div className={styles.mainDiv}>
       <p>{props.error}!</p>
       <p>
-        Please try again or contact our developer team <FaCode />
+        Please try again or contact our developer team. <FaCode />
       </p>
     </div>
   );

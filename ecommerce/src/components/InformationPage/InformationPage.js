@@ -4,7 +4,7 @@ import { withRouter } from "react-router";
 import NavComp from "../UI/NavComp/NavComp";
 import styles from "./InformationPage.css";
 import InformationCard from "../UI/InformationCard/InformationCard";
-import ErrorRecipeInfoPage from "../ErrorRecipeInfoPage/ErrorRecipeInfoPage";
+import ErrorFetchPage from "../ErrorFetchPage/ErrorFetchPage";
 import Footer from "../UI/Footer/Footer";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaBan } from "react-icons/fa";
@@ -47,7 +47,7 @@ const InformationPage = (props) => {
         <NavComp style={{ display: "none" }} />
         <div className={styles.cardContainer}>
           {error ? (
-            <ErrorRecipeInfoPage error={error} />
+            <ErrorFetchPage error={error} />
           ) : (
             <InformationCard
               instructions={
@@ -101,6 +101,11 @@ const InformationPage = (props) => {
               glutenFree={
                 recipeInfo.glutenFree ? (
                   <FaCheckCircle
+                    onClick={() => {
+                      // fetch(
+                      //   `https://api.spoonacular.com/recipes/${props.location.pathname}/tasteWidget`
+                      // );
+                    }}
                     style={{
                       fontSize: "25px",
                       color: "#28a745",

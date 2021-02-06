@@ -51,7 +51,15 @@ export const fetchRecipes = (searchValue) => {
             ...responseData[key],
           });
         }
-        dispatch(fetchRecipesSuccess(fetchedRecipes));
+        if (fetchedRecipes.length !== 0) {
+          dispatch(fetchRecipesSuccess(fetchedRecipes));
+        } else {
+          dispatch(
+            fetchRecipesFail(
+              "Your search returned no results. Rephrase your search"
+            )
+          );
+        }
       })
       .catch((err) => {
         dispatch(fetchRecipesFail(err.message));
