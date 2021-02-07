@@ -42,7 +42,7 @@ const InformationCard = (props) => {
           style={{ cursor: "pointer" }}
           className={determineItem(props.id) ? styles.green : styles.gray}
           onClick={() => {
-            if (!determineItem(props.id)) {
+            if (!determineItem(props.id) && favorites.length <= 9) {
               dispatch(addToFavorites(favorites, props.recipeInfo));
             } else if (determineItem(props.id)) {
               dispatch(removeFromFavorites(favorites, props.id));

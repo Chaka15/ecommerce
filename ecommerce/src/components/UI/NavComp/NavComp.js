@@ -3,8 +3,11 @@ import React from "react";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import styles from "./NavComp.css";
+import { useSelector } from "react-redux";
 
 const NavComp = (props) => {
+  const favorites = useSelector((state) => state.favRecipes);
+
   return (
     <Navbar bg="light" expand="lg" sticky="top">
       <Navbar.Brand href="/">CookIT</Navbar.Brand>
@@ -24,7 +27,11 @@ const NavComp = (props) => {
             className={styles.NavLink}
             activeClassName={styles.active}
           >
-            Favorites
+            Favorites(
+            <span className={favorites.length === 10 ? styles.red : null}>
+              {favorites.length}
+            </span>
+            )
           </NavLink>
         </Nav>
         <Form inline style={props.style}>

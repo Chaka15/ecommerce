@@ -29,7 +29,7 @@ const CardItem = (props) => {
             determineItem(props.recipe.id) ? styles.green : styles.gray
           }
           onClick={() => {
-            if (!determineItem(props.recipe.id)) {
+            if (!determineItem(props.recipe.id) && favorites.length <= 9) {
               dispatch(addToFavorites(favorites, props.recipe));
             } else if (determineItem(props.recipe.id)) {
               dispatch(removeFromFavorites(favorites, props.id));
