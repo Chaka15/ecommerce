@@ -13,11 +13,13 @@ const Footer = () => {
           <h3 style={{ fontStyle: "italic" }}>CookIT</h3>
           <div style={{ display: "flex", alignItems: "center" }}>
             <FaPhone style={{ marginRight: "10px" }} />
-            <span>+382 67 389 786</span>
+            <a href="tel:067389786">+382 67 389 786</a>
           </div>
           <div>
             <FaMailBulk style={{ marginRight: "10px" }} />
-            <span>cookit@gmail.com</span>
+            <a href="https://gmail.com" target="_blank" rel="noreferrer">
+              cookit@gmail.com
+            </a>
           </div>
         </section>
         <section className={styles.linksContainer}>

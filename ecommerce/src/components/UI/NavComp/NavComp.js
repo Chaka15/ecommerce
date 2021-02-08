@@ -42,7 +42,11 @@ const NavComp = React.forwardRef((props, ref) => {
             onChange={props.onChange}
             ref={ref}
           />
-          <Button variant="outline-success" onClick={props.onClick}>
+          <Button
+            variant="outline-success"
+            onClick={props.onClick}
+            disabled={props.disabled}
+          >
             Search
           </Button>
         </Form>

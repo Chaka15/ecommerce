@@ -21,6 +21,7 @@ const HomePage = () => {
 
   const [searchVal, setSearchVal] = useState("");
   const [likes, setLikes] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   const inputRef = useRef();
   const handler = useCallback(debounce(setSearchVal, 1500), []);
@@ -80,6 +81,17 @@ const HomePage = () => {
   const onLikesHandler = () => {
     setLikes(!likes);
   };
+  const handleClick = () => {
+    if (disabled) {
+      return;
+    }
+    setDisabled(true);
+  };
+  const enableBtn = () => {
+    if (disabled) {
+      setDisabled(false);
+    }
+  };
 
   return (
     <React.Fragment>
@@ -88,12 +100,15 @@ const HomePage = () => {
           ref={inputRef}
           onChange={(e) => {
             handler(e.target.value);
+            enableBtn();
           }}
           onClick={() => {
+            handleClick();
             dispatch(setClicked(clicked));
           }}
+          disabled={disabled}
         />
-        {cards.length === 0 ? null : (
+        {cards.length === 0 || fetchError ? null : (
           <FormComponent checked={likes} onChange={onLikesHandler} />
         )}
 
