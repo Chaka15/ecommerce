@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./NavComp.css";
 import { useSelector } from "react-redux";
 
-const NavComp = (props) => {
+const NavComp = React.forwardRef((props, ref) => {
   const favorites = useSelector((state) => state.favRecipes);
 
   return (
@@ -40,6 +40,7 @@ const NavComp = (props) => {
             placeholder="Your ingredients"
             className="mr-sm-2"
             onChange={props.onChange}
+            ref={ref}
           />
           <Button variant="outline-success" onClick={props.onClick}>
             Search
@@ -48,6 +49,6 @@ const NavComp = (props) => {
       </Navbar.Collapse>
     </Navbar>
   );
-};
+});
 
 export default NavComp;

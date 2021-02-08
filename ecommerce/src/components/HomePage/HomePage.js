@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchRecipes, setClicked } from "../../store/actions";
+import { debounce } from "lodash";
 
 import styles from "./HomePage.css";
 import NavComp from "../UI/NavComp/NavComp";
@@ -21,12 +22,18 @@ const HomePage = () => {
   const [searchVal, setSearchVal] = useState("");
   const [likes, setLikes] = useState(false);
 
+  const inputRef = useRef();
+  const handler = useCallback(debounce(setSearchVal, 1500), []);
+
   useEffect(() => {
-    console.log("Component rendered");
-    if (clicked) {
+    console.log("rendered");
+    if (clicked && inputRef.current.value === searchVal) {
       dispatch(fetchRecipes(searchVal));
+      return () => {
+        handler.cancel();
+      };
     }
-  }, [clicked, searchVal, dispatch]);
+  }, [clicked, searchVal, dispatch, inputRef, handler]);
 
   let cards;
   if (loading) {
@@ -78,11 +85,10 @@ const HomePage = () => {
     <React.Fragment>
       <div className={styles.main}>
         <NavComp
-          onChange={(e) =>
-            setTimeout(() => {
-              setSearchVal(e.target.value);
-            }, 1000)
-          }
+          ref={inputRef}
+          onChange={(e) => {
+            handler(e.target.value);
+          }}
           onClick={() => {
             dispatch(setClicked(clicked));
           }}
