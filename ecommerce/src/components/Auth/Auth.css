@@ -1,0 +1,29 @@
+.main {
+  width: 100%;
+  min-height: 50vh;
+  background-color: #28a745;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  width: 80%;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .main {
+    min-height: 65vh;
+  }
+  .form {
+    width: 60%;
+  }
+}
+@media (min-width: 1024px) {
+  .main {
+    min-height: 70vh;
+  }
+  .form {
+    width: 50%;
+  }
+}

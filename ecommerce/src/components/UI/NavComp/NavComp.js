@@ -33,6 +33,13 @@ const NavComp = React.forwardRef((props, ref) => {
             </span>
             )
           </NavLink>
+          <NavLink
+            to="/auth"
+            className={styles.NavLink}
+            activeClassName={styles.active}
+          >
+            Authenticate
+          </NavLink>
         </Nav>
         <Form inline style={props.style}>
           <FormControl
