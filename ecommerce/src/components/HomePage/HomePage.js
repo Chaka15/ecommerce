@@ -14,10 +14,10 @@ import ErrorFetchPage from "../ErrorFetchPage/ErrorFetchPage";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const recipes = useSelector((state) => state.recipes);
-  const loading = useSelector((state) => state.loading);
-  const clicked = useSelector((state) => state.clicked);
-  const fetchError = useSelector((state) => state.fetchError);
+  const recipes = useSelector((state) => state.favorites.recipes);
+  const loading = useSelector((state) => state.favorites.loading);
+  const clicked = useSelector((state) => state.favorites.clicked);
+  const fetchError = useSelector((state) => state.favorites.fetchError);
 
   const [searchVal, setSearchVal] = useState("");
   const [likes, setLikes] = useState(false);

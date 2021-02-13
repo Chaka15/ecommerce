@@ -8,7 +8,7 @@ import styles from "./FavoritesPage.css";
 import woman from "../../assets/woman.png";
 
 const FavoritesPage = () => {
-  const favorites = useSelector((state) => state.favRecipes);
+  const favorites = useSelector((state) => state.favorites.favRecipes);
 
   return (
     <React.Fragment>

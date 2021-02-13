@@ -8,7 +8,7 @@ import styles from "./FavoriteCard.css";
 
 const FavoriteCard = (props) => {
   const dispatch = useDispatch();
-  const favorites = useSelector((state) => state.favRecipes);
+  const favorites = useSelector((state) => state.favorites.favRecipes);
 
   return (
     <Card className={styles.card}>

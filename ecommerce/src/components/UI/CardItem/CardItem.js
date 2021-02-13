@@ -8,7 +8,7 @@ import { addToFavorites, removeFromFavorites } from "../../../store/actions";
 import { useSelector, useDispatch } from "react-redux";
 
 const CardItem = (props) => {
-  const favorites = useSelector((state) => state.favRecipes);
+  const favorites = useSelector((state) => state.favorites.favRecipes);
   const dispatch = useDispatch();
 
   const determineItem = (itemId) => {

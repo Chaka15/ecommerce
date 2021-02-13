@@ -3,4 +3,4 @@ export {
   addToFavorites,
   removeFromFavorites,
   setClicked,
-} from "./actions";
+} from "./favorites";

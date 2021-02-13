@@ -6,7 +6,7 @@ import styles from "./NavComp.css";
 import { useSelector } from "react-redux";
 
 const NavComp = React.forwardRef((props, ref) => {
-  const favorites = useSelector((state) => state.favRecipes);
+  const favorites = useSelector((state) => state.favorites.favRecipes);
 
   return (
     <Navbar bg="light" expand="lg" sticky="top">

@@ -8,7 +8,7 @@ import { removeFromFavorites, addToFavorites } from "../../../store/actions";
 
 const InformationCard = (props) => {
   const dispatch = useDispatch();
-  const favorites = useSelector((state) => state.favRecipes);
+  const favorites = useSelector((state) => state.favorites.favRecipes);
 
   const determineItem = (itemId) => {
     return favorites.some((favorite) => favorite.id === itemId);
