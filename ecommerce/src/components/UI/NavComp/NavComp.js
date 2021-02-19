@@ -51,6 +51,13 @@ const NavComp = React.forwardRef((props, ref) => {
               Authenticate
             </NavLink>
           )}
+          <NavLink
+            to="/saved"
+            className={styles.NavLink}
+            activeClassName={styles.active}
+          >
+            Saved
+          </NavLink>
         </Nav>
         <Form inline style={props.style}>
           <FormControl

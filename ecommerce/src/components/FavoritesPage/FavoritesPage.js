@@ -6,6 +6,7 @@ import FavoriteCard from "../UI/FavoriteCard/FavoriteCard";
 import { useSelector } from "react-redux";
 import styles from "./FavoritesPage.css";
 import woman from "../../assets/woman.png";
+import Button from "react-bootstrap/Button";
 
 const FavoritesPage = () => {
   const favorites = useSelector((state) => state.favorites.favRecipes);
@@ -38,7 +39,22 @@ const FavoritesPage = () => {
             ))
           )}
         </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "25px 0px",
+          }}
+        >
+          {favorites.length === 0 ? null : (
+            <Button variant="danger" className={styles.orderButton}>
+              Save your favorites
+            </Button>
+          )}
+        </div>
       </div>
+
       <Footer />
     </React.Fragment>
   );

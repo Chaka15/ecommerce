@@ -148,7 +148,7 @@ const Auth = () => {
 
   return (
     <React.Fragment>
-      <NavComp />
+      <NavComp style={{ display: "none" }} />
       {redirect}
       <div className={styles.main}>{form}</div>
       <Footer />
