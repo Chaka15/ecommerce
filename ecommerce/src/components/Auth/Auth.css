@@ -11,6 +11,11 @@
   text-align: center;
 }
 
+.button {
+  display: block;
+  margin: 17px auto;
+}
+
 @media (min-width: 768px) {
   .main {
     min-height: 65vh;
@@ -18,12 +23,23 @@
   .form {
     width: 60%;
   }
+  .button {
+    margin: 27px auto;
+  }
+  .spinner {
+    height: 3rem;
+    width: 3rem;
+  }
 }
 @media (min-width: 1024px) {
   .main {
-    min-height: 70vh;
+    min-height: 75vh;
   }
   .form {
     width: 50%;
+  }
+  .spinner {
+    height: 4rem;
+    width: 4rem;
   }
 }

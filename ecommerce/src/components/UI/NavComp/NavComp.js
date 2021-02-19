@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 const NavComp = React.forwardRef((props, ref) => {
   const favorites = useSelector((state) => state.favorites.favRecipes);
+  const isAuth = useSelector((state) => state.auth.token !== null);
 
   return (
     <Navbar bg="light" expand="lg" sticky="top">
@@ -33,13 +34,23 @@ const NavComp = React.forwardRef((props, ref) => {
             </span>
             )
           </NavLink>
-          <NavLink
-            to="/auth"
-            className={styles.NavLink}
-            activeClassName={styles.active}
-          >
-            Authenticate
-          </NavLink>
+          {isAuth ? (
+            <NavLink
+              to="/logout"
+              className={styles.NavLink}
+              activeClassName={styles.active}
+            >
+              Logout
+            </NavLink>
+          ) : (
+            <NavLink
+              to="/auth"
+              className={styles.NavLink}
+              activeClassName={styles.active}
+            >
+              Authenticate
+            </NavLink>
+          )}
         </Nav>
         <Form inline style={props.style}>
           <FormControl
