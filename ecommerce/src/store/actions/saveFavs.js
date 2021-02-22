@@ -22,6 +22,7 @@ export const saveFavsFail = (error) => {
 export const saveFavs = (savedFavs, savedFavObj, token) => {
   return (dispatch) => {
     dispatch(saveFavsStart());
+
     fetch(
       "https://cookit-96a58-default-rtdb.firebaseio.com/favorites.json?auth=" +
         token,
@@ -30,12 +31,13 @@ export const saveFavs = (savedFavs, savedFavObj, token) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(savedFav),
+        body: JSON.stringify(savedFavObj),
       }
     )
       .then((response) => response.json())
       .then((responseData) => {
-        dispatch(saveFavsSuccess(responseData, savedFavs, savedFavObj));
+        console.log(responseData);
+        dispatch(saveFavsSuccess(responseData.name, savedFavs, savedFavObj));
       })
       .catch((err) => {
         dispatch(saveFavsFail(err));

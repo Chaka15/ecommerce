@@ -10,10 +10,11 @@ import Auth from "./components/Auth/Auth";
 import Logout from "./components/Auth/Logout/Logout";
 import { authCheckState } from "./store/actions";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(authCheckState());
   }, [dispatch]);
@@ -22,10 +23,10 @@ function App() {
     <div className="App">
       <Switch>
         <Route path="/" component={HomePage} exact />
+        <Route path="/saved" component={SavedSection} exact />
         <Route path="/logout" component={Logout} exact />
         <Route path="/favorites" component={FavoritesPage} exact />
         <Route path="/auth" component={Auth} exact />
-        <Route path="/saved" component={SavedSection} exact />
         <Route path="/:id" component={InformationPage} exact />
         <Route component={ErrorPage} />
       </Switch>

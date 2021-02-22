@@ -5,7 +5,6 @@ import NavComp from "../UI/NavComp/NavComp";
 import styles from "./InformationPage.css";
 import InformationCard from "../UI/InformationCard/InformationCard";
 import ErrorFetchPage from "../ErrorFetchPage/ErrorFetchPage";
-// import Graph from "../UI/Graph/Graph";
 import Footer from "../UI/Footer/Footer";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaBan } from "react-icons/fa";
@@ -15,7 +14,6 @@ const InformationPage = (props) => {
   const [recipeInstructions, setRecipeInstructions] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
-  // const [visualize, setVisualize] = useState();
 
   useEffect(() => {
     console.log("render info");
@@ -47,7 +45,6 @@ const InformationPage = (props) => {
     <React.Fragment>
       <div className={styles.main}>
         <NavComp style={{ display: "none" }} />
-        {/* <Graph HTML={visualize} /> */}
         <div className={styles.cardContainer}>
           {error ? (
             <ErrorFetchPage error={error} />
@@ -104,17 +101,6 @@ const InformationPage = (props) => {
               glutenFree={
                 recipeInfo.glutenFree ? (
                   <FaCheckCircle
-                    // onClick={() => {
-                    //   fetch(
-                    //     `https://api.spoonacular.com/recipes${props.location.pathname}/tasteWidget?apiKey=ec39b7d20a314a2d8a7fcedca9b5b418`
-                    //   )
-                    //     .then((response) => response.text())
-                    //     .then((responseData) => {
-                    //       setVisualize(responseData);
-                    //       console.log(responseData);
-                    //     })
-                    //     .catch((err) => console.log(err));
-                    // }}
                     style={{
                       fontSize: "25px",
                       color: "#28a745",

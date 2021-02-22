@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import favoritesReducer from "./store/reducers/favorites";
 import authReducer from "./store/reducers/auth";
+import saveFavsReducer from "./store/reducers/saveFavs";
 
 const logger = (store) => {
   return (next) => {
@@ -27,6 +28,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
   favorites: favoritesReducer,
   auth: authReducer,
+  saveFavs: saveFavsReducer,
 });
 
 const store = createStore(
