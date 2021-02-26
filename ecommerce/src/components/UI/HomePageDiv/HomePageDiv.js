@@ -6,7 +6,7 @@ import mainPic from "../../../assets/largepic.jpg";
 import applePic from "../../../assets/apple.jpg";
 import winePic from "../../../assets/wine.jpg";
 
-const HomePageDiv = () => {
+const HomePageDiv = React.memo(() => {
   return (
     <div className={styles.mainDiv}>
       <Card className={styles.card}>
@@ -29,6 +29,6 @@ const HomePageDiv = () => {
       </Card>
     </div>
   );
-};
+});
 
 export default HomePageDiv;

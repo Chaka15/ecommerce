@@ -5,7 +5,7 @@ import { FaPhone, FaMailBulk, FaAddressCard, FaMap } from "react-icons/fa";
 import Flag from "react-world-flags";
 import BackToTop from "../BackToTop/BackToTop";
 
-const Footer = () => {
+const Footer = React.memo(() => {
   return (
     <React.Fragment>
       <div className={styles.footer}>
@@ -60,6 +60,6 @@ const Footer = () => {
       <BackToTop />
     </React.Fragment>
   );
-};
+});
 
 export default Footer;

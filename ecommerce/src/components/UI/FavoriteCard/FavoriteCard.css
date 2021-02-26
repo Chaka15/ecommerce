@@ -20,6 +20,11 @@
   color: rgba(0, 0, 0, 0.9);
   cursor: pointer;
 }
+.trash:hover,
+.trash:active {
+  color: #28a745;
+  transition: all 0.2s;
+}
 
 @media (min-width: 601px) {
   .card {
@@ -37,11 +42,6 @@
   .cardImg {
     width: 210px;
     height: 135px;
-  }
-  .trash:hover,
-  .trash:active {
-    color: #28a745;
-    transition: all 0.5s;
   }
 }
 @media (min-width: 1024px) {

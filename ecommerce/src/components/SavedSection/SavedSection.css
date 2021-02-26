@@ -1,5 +1,41 @@
 .savedSection {
   width: 100%;
-  min-height: 100vh;
+  min-height: 60vh;
   background-color: #28a745;
+}
+.empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 100px;
+  min-height: 300px;
+  text-align: center;
+  line-height: 2.9;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 601px) {
+  .savedSection {
+    min-height: 70vh;
+  }
+  .empty {
+    margin-top: 110px;
+    min-height: 320px;
+    letter-spacing: 1.2px;
+  }
+  .empty p {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .savedSection {
+    min-height: 80vh;
+  }
+  .empty {
+    letter-spacing: 1.4px;
+  }
+  .empty p {
+    font-size: 1.3rem;
+  }
 }

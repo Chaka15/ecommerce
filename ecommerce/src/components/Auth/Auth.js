@@ -7,6 +7,7 @@ import Footer from "../UI/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../../store/actions";
 import Spinner from "react-bootstrap/Spinner";
+import ErrorFetchPage from "../ErrorFetchPage/ErrorFetchPage";
 import { Redirect } from "react-router-dom";
 
 const Auth = () => {
@@ -135,7 +136,7 @@ const Auth = () => {
       </Button>
     </Form>
   );
-  if (loading) {
+  if (loading && !error) {
     form = (
       <Spinner
         animation="border"
@@ -145,6 +146,9 @@ const Auth = () => {
       />
     );
   }
+  //  else if (error) {
+  //   form = <ErrorFetchPage error={error} />;
+  // }
 
   return (
     <React.Fragment>

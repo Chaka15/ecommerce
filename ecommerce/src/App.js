@@ -10,7 +10,7 @@ import Auth from "./components/Auth/Auth";
 import Logout from "./components/Auth/Logout/Logout";
 import { authCheckState } from "./store/actions";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();

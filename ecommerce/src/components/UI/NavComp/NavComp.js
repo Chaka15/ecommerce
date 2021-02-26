@@ -38,6 +38,7 @@ const NavComp = React.forwardRef((props, ref) => {
             <NavLink
               to="/logout"
               className={styles.NavLink}
+              style={{ color: "red" }}
               activeClassName={styles.active}
             >
               Logout

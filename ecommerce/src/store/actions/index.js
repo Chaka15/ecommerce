@@ -7,4 +7,4 @@ export {
 
 export { auth, logout, authCheckState } from "./auth";
 
-export { saveFavs } from "./saveFavs";
+export { saveFavs, fetchFavs } from "./saveFavs";
