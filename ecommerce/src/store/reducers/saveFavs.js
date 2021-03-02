@@ -8,6 +8,7 @@ const initialState = {
   fetchedFavs: [],
   fetchLoading: false,
   fetchError: false,
+  needToFetchFavs: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -23,6 +24,7 @@ const reducer = (state = initialState, action) => {
         savedFavs: action.savedFavs,
         saveId: action.saveId,
         loading: false,
+        needToFetchFavs: true,
       };
     case actionTypes.SAVE_FAVS_FAIL:
       return {
@@ -41,6 +43,7 @@ const reducer = (state = initialState, action) => {
         fetchedFavs: action.fetchedFavs,
         fetchLoading: false,
         fetchError: false,
+        needToFetchFavs: false,
       };
     case actionTypes.FETCH_FAVS_FAIL:
       return {

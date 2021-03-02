@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 
 import styles from "./SavedSection.css";
 import NavComp from "../UI/NavComp/NavComp";
 import Footer from "../UI/Footer/Footer";
 import ErrorFetchPage from "../ErrorFetchPage/ErrorFetchPage";
 import Spinner from "react-bootstrap/Spinner";
+import Figure from "react-bootstrap/Figure";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchFavs } from "../../store/actions";
 
@@ -14,13 +15,20 @@ const SavedSection = () => {
   const fetchedFavs = useSelector((state) => state.saveFavs.fetchedFavs);
   const fetchError = useSelector((state) => state.saveFavs.fetchError);
   const fetchLoading = useSelector((state) => state.saveFavs.fetchLoading);
+  const needToFetchFavs = useSelector(
+    (state) => state.saveFavs.needToFetchFavs
+  );
   const dispatch = useDispatch();
+  const fetchFavsOptimized = useCallback(() => {
+    dispatch(fetchFavs(token, id));
+    console.log("rendered");
+  }, [token, id, dispatch]);
 
   useEffect(() => {
-    if (token) {
-      dispatch(fetchFavs(token, id));
+    if (token && needToFetchFavs) {
+      fetchFavsOptimized();
     }
-  }, [dispatch, token, id, fetchFavs]);
+  }, [fetchFavsOptimized, token]);
 
   let saved;
   if (fetchedFavs.length === 0 && !fetchError && !fetchLoading) {
@@ -32,7 +40,29 @@ const SavedSection = () => {
       </div>
     );
   } else if (!fetchError && fetchedFavs.length !== 0) {
-    saved = <p>radi</p>;
+    let fetchedFavsCopy = fetchedFavs.slice();
+    let newFetchedFavs = [];
+    fetchedFavsCopy.forEach((el) => {
+      for (let property in el) {
+        if (!isNaN(property)) {
+          newFetchedFavs.push({
+            data: el[property],
+          });
+        }
+      }
+    });
+    saved = newFetchedFavs.map((el) => (
+      <Figure className={styles.figure}>
+        <Figure.Image
+          className={styles.figureImage}
+          alt={el.data.title}
+          src={el.data.image}
+        />
+        <Figure.Caption className={styles.figureCaption}>
+          {`${el.data.title.slice(0, 15)}...`}
+        </Figure.Caption>
+      </Figure>
+    ));
   } else if (fetchError) {
     saved = <ErrorFetchPage error={fetchError.message} />;
   } else if (fetchLoading) {
@@ -50,7 +80,7 @@ const SavedSection = () => {
     <React.Fragment>
       <div className={styles.savedSection}>
         <NavComp style={{ display: "none" }} />
-        {saved}
+        <div className={styles.main}>{saved}</div>
       </div>
       <Footer />
     </React.Fragment>

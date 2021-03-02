@@ -63,8 +63,6 @@ export const auth = (email, password, isSignup) => {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log(responseData);
-
         if (responseData.error) {
           if (responseData.error.message) {
             dispatch(authFail(responseData.error.message));

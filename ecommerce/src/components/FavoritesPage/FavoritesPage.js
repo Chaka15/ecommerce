@@ -89,6 +89,12 @@ const FavoritesPage = () => {
               Sign in in order to save your favorites!
             </p>
           ) : null}
+          {token !== null && favorites.length !== 0 ? (
+            <p style={{ paddingTop: "10px", color: "#f8f9fa" }}>
+              Only save favorites you want to see every time in your saved
+              section when you log in!
+            </p>
+          ) : null}
         </div>
       </div>
 

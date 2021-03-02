@@ -27,7 +27,6 @@ const HomePage = () => {
   const handler = useCallback(debounce(setSearchVal, 1500), []);
 
   useEffect(() => {
-    console.log("rendered");
     if (clicked && inputRef.current.value === searchVal) {
       dispatch(fetchRecipes(searchVal));
       return () => {
