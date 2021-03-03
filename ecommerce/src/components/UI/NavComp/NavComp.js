@@ -37,8 +37,7 @@ const NavComp = React.forwardRef((props, ref) => {
           {isAuth ? (
             <NavLink
               to="/logout"
-              className={styles.NavLink}
-              style={{ color: "red" }}
+              className={styles.NavLinkLogout}
               activeClassName={styles.active}
             >
               Logout

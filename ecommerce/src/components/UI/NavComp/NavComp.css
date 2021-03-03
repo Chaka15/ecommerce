@@ -10,6 +10,19 @@
   text-decoration: none;
   color: rgba(0, 0, 0, 0.7);
 }
+.NavLinkLogout {
+  text-decoration: none;
+  color: red;
+  padding-right: 0;
+  padding-left: 0;
+  display: block;
+  padding: 0.5rem 1rem;
+}
+.NavLinkLogout:hover {
+  text-decoration: none;
+  color: rgb(238, 133, 133);
+}
+
 .active {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.7);

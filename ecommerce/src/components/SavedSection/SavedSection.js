@@ -21,14 +21,13 @@ const SavedSection = () => {
   const dispatch = useDispatch();
   const fetchFavsOptimized = useCallback(() => {
     dispatch(fetchFavs(token, id));
-    console.log("rendered");
   }, [token, id, dispatch]);
 
   useEffect(() => {
     if (token && needToFetchFavs) {
       fetchFavsOptimized();
     }
-  }, [fetchFavsOptimized, token]);
+  }, [fetchFavsOptimized, token, needToFetchFavs]);
 
   let saved;
   if (fetchedFavs.length === 0 && !fetchError && !fetchLoading) {

@@ -7,7 +7,7 @@ import Footer from "../UI/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../../store/actions";
 import Spinner from "react-bootstrap/Spinner";
-import ErrorFetchPage from "../ErrorFetchPage/ErrorFetchPage";
+// import ErrorFetchPage from "../ErrorFetchPage/ErrorFetchPage";
 import { Redirect } from "react-router-dom";
 
 const Auth = () => {
