@@ -2,7 +2,7 @@
   "name": "ecommerce",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Chaka15.github.io/ecommerce",
+  "homepage": "https://chaka15.github.io/ecommerce",
   "dependencies": {
     "@babel/core": "7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.2",
