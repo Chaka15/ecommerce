@@ -101,7 +101,8 @@ const HomePage = () => {
             handler(e.target.value);
             enableBtn();
           }}
-          onClick={() => {
+          onSubmit={(e) => {
+            e.preventDefault();
             handleClick();
             dispatch(setClicked(clicked));
           }}

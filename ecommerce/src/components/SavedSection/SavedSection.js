@@ -51,7 +51,7 @@ const SavedSection = () => {
       }
     });
     saved = newFetchedFavs.map((el) => (
-      <Figure className={styles.figure}>
+      <Figure className={styles.figure} key={el.data.title}>
         <Figure.Image
           className={styles.figureImage}
           alt={el.data.title}

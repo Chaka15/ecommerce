@@ -61,7 +61,7 @@ const NavComp = React.forwardRef((props, ref) => {
             </NavLink>
           ) : null}
         </Nav>
-        <Form inline style={props.style}>
+        <Form inline style={props.style} onSubmit={props.onSubmit}>
           <FormControl
             type="text"
             placeholder="Your ingredients"
@@ -71,7 +71,7 @@ const NavComp = React.forwardRef((props, ref) => {
           />
           <Button
             variant="outline-success"
-            onClick={props.onClick}
+            type="submit"
             disabled={props.disabled}
           >
             Search
