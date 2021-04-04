@@ -1,6 +1,6 @@
 .main {
   width: 100%;
-  min-height: 50vh;
+  min-height: 60vh;
   background-color: #28a745;
   display: flex;
   justify-content: center;
@@ -16,9 +16,9 @@
   margin: 17px auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 601px) {
   .main {
-    min-height: 65vh;
+    min-height: 70vh;
   }
   .form {
     width: 60%;
@@ -33,7 +33,7 @@
 }
 @media (min-width: 1024px) {
   .main {
-    min-height: 75vh;
+    min-height: 80vh;
   }
   .form {
     width: 50%;

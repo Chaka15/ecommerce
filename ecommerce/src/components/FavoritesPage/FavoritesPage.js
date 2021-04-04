@@ -3,9 +3,9 @@ import React from "react";
 import NavComp from "../UI/NavComp/NavComp";
 import Footer from "../UI/Footer/Footer";
 import FavoriteCard from "../UI/FavoriteCard/FavoriteCard";
+import EmptyFavoritesPage from "../EmptyFavoritesPage/EmptyFavoritesPage";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./FavoritesPage.css";
-import woman from "../../assets/woman.png";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import ErrorFetchPage from "../ErrorFetchPage/ErrorFetchPage";
@@ -24,6 +24,16 @@ const FavoritesPage = () => {
     ...favorites,
     userId,
   };
+  const saveFavorites = () => {
+    dispatch(saveFavs(savedFavs, favsObject, token));
+    favorites.length = 0;
+  };
+  // const checkForDuplicates = (arr1, arr2) => {
+  //   dispatch(fetchFavs(token, userId));
+  //   const favsIds = arr1.map((el) => el.id);
+  //   const savedFavsids = arr2.map((el) => console.log(el));
+  // };
+  // checkForDuplicates(favorites, savedFavs);
 
   return (
     <React.Fragment>
@@ -32,19 +42,11 @@ const FavoritesPage = () => {
         {saveError && <ErrorFetchPage error={saveError.message} />}
         <div className={styles.favoritesDiv}>
           {favorites.length === 0 && !loading && !saveError ? (
-            <div className={styles.empty}>
-              <h2>It looks empty here.</h2>
-              <img
-                src={woman}
-                alt="Keep the distance!"
-                className={styles.emptyIcon}
-              />
-              <code className={styles.code}>distance: true; mask: true;</code>
-              <h3>You should try adding items to this section!</h3>
-            </div>
+            <EmptyFavoritesPage />
           ) : (
             favorites.map((favorite) => (
               <FavoriteCard
+                key={favorite.id}
                 image={favorite.image}
                 title={favorite.title}
                 id={favorite.id}
@@ -68,10 +70,7 @@ const FavoritesPage = () => {
               variant="danger"
               className={styles.saveButton}
               disabled={token === null}
-              onClick={() => {
-                dispatch(saveFavs(savedFavs, favsObject, token));
-                favorites.length = 0;
-              }}
+              onClick={saveFavorites}
             >
               Save your favorites
             </Button>
@@ -103,7 +102,6 @@ const FavoritesPage = () => {
           ) : null}
         </div>
       </div>
-
       <Footer />
     </React.Fragment>
   );

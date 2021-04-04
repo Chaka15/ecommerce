@@ -29,16 +29,7 @@ const SavedSection = () => {
     }
   }, [fetchFavsOptimized, token, needToFetchFavs]);
 
-  let saved;
-  if (fetchedFavs.length === 0 && !fetchError && !fetchLoading) {
-    saved = (
-      <div className={styles.empty}>
-        <h2>Here you will have all saved favorites</h2>
-        <p>They are available every time you log in</p>
-        <p>This way you don't lose your data and your favorite recipes</p>
-      </div>
-    );
-  } else if (!fetchError && fetchedFavs.length !== 0) {
+  const displaySavedFavorites = () => {
     let fetchedFavsCopy = fetchedFavs.slice();
     let newFetchedFavs = [];
     fetchedFavsCopy.forEach((el) => {
@@ -50,7 +41,15 @@ const SavedSection = () => {
         }
       }
     });
-    saved = newFetchedFavs.map((el) => (
+    const uniqueFetchedFavs = [
+      ...newFetchedFavs
+        .reduce((map, obj) => {
+          console.log("hi");
+          return map.set(obj.data.id, obj);
+        }, new Map())
+        .values(),
+    ];
+    return uniqueFetchedFavs.map((el) => (
       <Figure className={styles.figure} key={el.data.title}>
         <Figure.Image
           className={styles.figureImage}
@@ -62,6 +61,19 @@ const SavedSection = () => {
         </Figure.Caption>
       </Figure>
     ));
+  };
+
+  let saved;
+  if (fetchedFavs.length === 0 && !fetchError && !fetchLoading) {
+    saved = (
+      <div className={styles.empty}>
+        <h2>Here you will have all saved favorites</h2>
+        <p>They are available every time you log in</p>
+        <p>This way you don't lose your data and your favorite recipes</p>
+      </div>
+    );
+  } else if (!fetchError && fetchedFavs.length !== 0) {
+    saved = displaySavedFavorites();
   } else if (fetchError) {
     saved = <ErrorFetchPage error={fetchError.message} />;
   } else if (fetchLoading) {

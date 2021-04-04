@@ -11,26 +11,6 @@
   flex-flow: row wrap;
   justify-content: center;
 }
-
-.empty {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 100px;
-  min-height: 300px;
-  text-align: center;
-  line-height: 2.9;
-  letter-spacing: 1px;
-}
-.emptyIcon {
-  height: 5rem;
-  width: 5rem;
-}
-.code {
-  color: white;
-  font-size: 0.8rem;
-}
 .saveButton {
   margin: 0 auto;
 }
@@ -40,6 +20,9 @@
 }
 
 @media (min-width: 601px) {
+  .main {
+    min-height: 70vh;
+  }
   .favoritesDiv {
     justify-content: space-around;
   }
@@ -59,8 +42,10 @@
   }
 }
 @media (min-width: 1024px) {
+  .main {
+    min-height: 80vh;
+  }
   .empty {
-    margin-top: 130px;
     min-height: 350px;
     letter-spacing: 1.4px;
   }
