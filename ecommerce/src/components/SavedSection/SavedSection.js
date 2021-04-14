@@ -44,7 +44,6 @@ const SavedSection = () => {
     const uniqueFetchedFavs = [
       ...newFetchedFavs
         .reduce((map, obj) => {
-          console.log("hi");
           return map.set(obj.data.id, obj);
         }, new Map())
         .values(),

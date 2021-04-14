@@ -1,5 +1,3 @@
-import "./App.css";
-
 import { Route, Switch } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import FavoritesPage from "./components/FavoritesPage/FavoritesPage";
@@ -20,7 +18,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div>
       <Switch>
         <Route path="/" component={HomePage} exact />
         <Route path="/saved" component={SavedSection} exact />

@@ -28,12 +28,6 @@ const FavoritesPage = () => {
     dispatch(saveFavs(savedFavs, favsObject, token));
     favorites.length = 0;
   };
-  // const checkForDuplicates = (arr1, arr2) => {
-  //   dispatch(fetchFavs(token, userId));
-  //   const favsIds = arr1.map((el) => el.id);
-  //   const savedFavsids = arr2.map((el) => console.log(el));
-  // };
-  // checkForDuplicates(favorites, savedFavs);
 
   return (
     <React.Fragment>

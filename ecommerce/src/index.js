@@ -15,9 +15,7 @@ import saveFavsReducer from "./store/reducers/saveFavs";
 const logger = (store) => {
   return (next) => {
     return (action) => {
-      // console.log("[Middleware] dispatching", action);
       const result = next(action);
-      // console.log("[Middleware] next state", action);
       return result;
     };
   };

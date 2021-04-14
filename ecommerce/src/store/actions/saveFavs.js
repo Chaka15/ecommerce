@@ -81,7 +81,6 @@ export const fetchFavs = (token, userId) => {
             id: key,
           });
         }
-        console.log(fetchedFavorites);
         dispatch(fetchFavsSuccess(fetchedFavorites));
       })
       .catch((err) => {

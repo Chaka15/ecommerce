@@ -16,7 +16,6 @@ const InformationPage = (props) => {
   const [error, setError] = useState();
 
   useEffect(() => {
-    console.log("render info");
     setLoading(true);
     fetch(
       `https://api.spoonacular.com/recipes/${props.location.pathname}/information?apiKey=ec39b7d20a314a2d8a7fcedca9b5b418`
